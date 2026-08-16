@@ -25,12 +25,21 @@
             fetch(`https://cloud.jnyzrcxq.com/base/mobile/v1/admin/userCheck/getStudentList?openId=&phone=${phoneNumber}`)
                 .then(response => response.json())
                 .then(data => {
+                    if (data.data.length == 0) {
+                        document.write(`没有查询到信息, 请清除缓存后检查手机号是否正确`);
+                        document.write("<br>");
+                        document.write(`<a href="javascript:localStorage.clear();location.reload();">清除缓存</a>`);
+                        document.write(`<br><br>原始数据:<br><br>`);
+                        document.write(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
+                    }
                     document.write("<title>Lookup</title>");
                     document.write(`Name: ${data.data[0].studentName}`);
                     document.write(`<br>`);
                     document.write(`Class: ${data.data[0].className}`);
                     document.write(`<br>`);
                     document.write(`<a href="javascript:localStorage.clear();location.reload();">清除缓存</a>`);
+                    document.write(`<br><br>原始数据:<br><br>`);
+                    document.write(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
                 })
         </script>
     </main>
