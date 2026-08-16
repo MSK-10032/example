@@ -29,7 +29,7 @@
                         document.write(`没有查询到信息, 请清除缓存后检查手机号是否正确`);
                         document.write("<br>");
                         document.write(`<a href="javascript:localStorage.clear();location.reload();">清除缓存</a>`);
-                        document.write(`<br><br>原始数据:<br><br>`);
+                        document.write(`<br><br><hr>原始数据:`);
                         document.write(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
                     }
                     document.write("<title>Lookup</title>");
@@ -38,7 +38,7 @@
                     document.write(`Class: ${data.data[0].className}`);
                     document.write(`<br>`);
                     document.write(`<a href="javascript:localStorage.clear();location.reload();">清除缓存</a>`);
-                    document.write(`<br><br>原始数据:<br><br>`);
+                    document.write(`<br><br><hr>原始数据:`);
                     document.write(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
                 })
         </script>
