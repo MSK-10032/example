@@ -10,6 +10,10 @@
     <main>
         <script>
             if (localStorage.getItem("phoneNumber")) {
+                if (localStorage.getItem("phoneNumber").length != 11) {
+                    localStorage.clear();
+                    location.reload();
+                }
                 var phoneNumber = localStorage.getItem("phoneNumber");
             } else {
                 var phoneNumber = Number(prompt("请输入您的手机号:"));
@@ -25,6 +29,8 @@
                     document.write(`Name: ${data.data[0].studentName}`);
                     document.write(`<br>`);
                     document.write(`Class: ${data.data[0].className}`);
+                    document.write(`<br>`);
+                    document.write(`<a href="javascript:localStorage.clear();location.reload();">清除缓存</a>`);
                 })
         </script>
     </main>
