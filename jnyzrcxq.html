@@ -18,7 +18,7 @@
             // var phoneNumber = Number(prompt("请输入您的手机号:"));
             // localStorage.setItem("phoneNumber", phoneNumber);
 
-            fetch(`http://cloud.jnyzrcxq.com/base/mobile/v1/admin/userCheck/getStudentList?openId=&phone=${phoneNumber}`)
+            fetch(`https://cloud.jnyzrcxq.com/base/mobile/v1/admin/userCheck/getStudentList?openId=&phone=${phoneNumber}`)
                 .then(response => response.json())
                 .then(data => {
                     document.write("<title>Lookup</title>");
