@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lookup</title>
+</head>
+
+<body>
+    <main>
+        <script>
+            if (localStorage.getItem("phoneNumber")) {
+                var phoneNumber = localStorage.getItem("phoneNumber");
+            } else {
+                var phoneNumber = Number(prompt("请输入您的手机号:"));
+                localStorage.setItem("phoneNumber", phoneNumber);
+            }
+            // var phoneNumber = Number(prompt("请输入您的手机号:"));
+            // localStorage.setItem("phoneNumber", phoneNumber);
+
+            fetch(`http://cloud.jnyzrcxq.com/base/mobile/v1/admin/userCheck/getStudentList?openId=&phone=${phoneNumber}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.write("<title>Lookup</title>");
+                    document.write(`Name: ${data.data[0].studentName}`);
+                    document.write(`<br>`);
+                    document.write(`Class: ${data.data[0].className}`);
+                })
+        </script>
+    </main>
+</body>
+
+</html>
